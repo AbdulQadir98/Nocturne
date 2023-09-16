@@ -2,6 +2,7 @@ import threading
 from queue import Queue
 from threading import Event
 
+
 class Stage:
     def __init__(self, name, buffer_size):
         self.name = name
@@ -25,25 +26,28 @@ class Stage:
     def stop(self):
         self.stop_event.set()
 
+
 class ResolutionStage(Stage):
     def __init__(self):
         print("ResolutionStage")
         super().__init__(name='Resolution', buffer_size=10)
-        
+
     def process(self, frame):
         print("R", frame)
         processed_frame = frame
         return processed_frame
-    
+
+
 class DetectStage(Stage):
     def __init__(self):
         print("DetectStage")
         super().__init__(name='Detection', buffer_size=10)
-        
+
     def process(self, frame):
         print("D", frame)
         processed_frame = frame
         return processed_frame
+
 
 class EnhanceStage(Stage):
     def __init__(self):
@@ -55,7 +59,7 @@ class EnhanceStage(Stage):
         processed_frame = frame
         processed_frame = frame
         return processed_frame
-    
+
 
 class Pipeline:
     def __init__(self, stages):
@@ -77,10 +81,10 @@ class Pipeline:
         for stage in self.stages:
             stage.thread.join()
 
-
     def stop(self):
         for stage in self.stages:
             stage.stop()
+
 
 def main():
 
@@ -97,6 +101,7 @@ def main():
         detect_stage.input_buffer.put(data)
 
     pipeline.run()
+
 
 if __name__ == '__main__':
     main()
