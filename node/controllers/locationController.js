@@ -1,5 +1,6 @@
 const admin = require('firebase-admin');
 const db = admin.firestore();
+const logger = require('../logger');
 
 exports.logLocation = (req, res) => {
   const { latitude, longitude } = req.body;
@@ -12,10 +13,11 @@ exports.logLocation = (req, res) => {
       timestamp: admin.firestore.FieldValue.serverTimestamp(),
     })
     .then(() => {
+      logger.info('Location logged successfully:', { latitude, longitude });
       res.status(200).send('Location logged successfully');
     })
     .catch((error) => {
-      console.error('Error logging location:', error);
+      logger.error('Error logging location:', error);
       res.status(500).send('Internal Server Error');
     });
 };
