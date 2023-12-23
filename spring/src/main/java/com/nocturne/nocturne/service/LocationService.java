@@ -21,12 +21,3 @@ public class LocationService {
         ApiFuture<WriteResult> apiFuture = docRef.set(location);
     }
 }
-
-// import reactor.core.publisher.Flux;
-// import reactor.core.publisher.Mono;
-
-// public interface LocationService {
-// Mono<Location> saveLocation(Location location);
-// Flux<Location> getAllLocations();
-// // Add other service methods if needed
-// }
