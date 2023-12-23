@@ -1,0 +1,28 @@
+[debug] [2023-12-23T05:58:48.356Z] ----------------------------------------------------------------------
+[debug] [2023-12-23T05:58:48.361Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\vili\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-12-23T05:58:48.362Z] CLI Version:   13.0.2
+[debug] [2023-12-23T05:58:48.363Z] Platform:      win32
+[debug] [2023-12-23T05:58:48.363Z] Node Version:  v20.10.0
+[debug] [2023-12-23T05:58:48.364Z] Time:          Sat Dec 23 2023 11:28:48 GMT+0530 (India Standard Time)
+[debug] [2023-12-23T05:58:48.364Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-12-23T05:58:48.465Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-12-23T05:58:48.466Z] > authorizing via signed-in user (abdul.qadirv98@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\vili\Desktop\Nocturne\spring
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
