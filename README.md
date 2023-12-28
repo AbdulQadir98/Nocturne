@@ -1,31 +1,33 @@
-# Sri Lankan Nighttime Object Detection App
+# Nocturne: real-time night time driving assistant
+
+Welcome to the Nocturne: real-time night time driving assistant repository, a project designed to enhance safety during nighttime travel on Sri Lankan roads.
 
 ## Overview
 
-This mobile application is designed for the Sri Lankan context to enhance nighttime road safety. It utilizes machine learning models to detect pedestrians, cyclists, and potholes in low-light conditions. This README provides an overview of the project, setup instructions, and usage guidelines.
+This system predicts pedestrians, cyclists, and potholes in the Sri Lankan context during nighttime. It utilizes Python for data preprocessing and model training, React for the application frontend, and Spring Boot for the backend.
 
-## Table of Contents
+## Features
 
-- [Getting Started](#getting-started)
-- [Data Collection](#data-collection)
-- [Model Training](#model-training)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+- **Real-Time Projection:** Immediate and vital information is projected onto the vehicle windscreen.
+  
+- **Network Establishment:** A network connects drivers based on their individual needs.
 
-## Getting Started
+- **Prediction Focus:** Real-time detection of pedestrians, cyclists, and potholes during nighttime.
 
-To get started with this project, follow these steps:
+- **Pothole Data Logging:** Logging of pothole data for further analysis.
 
-1. **Clone the Repository**:
+- **Parallel Processing:** Utilizes parallel processing for efficient real-time detection.
 
+## Technology Stack
+
+- **Data Preprocessing and Model Training:** Python, YOLOv8 Ultralytics python library.
+  
+- **Frontend Development:** React.
+
+- **Backend Implementation:** Spring Boot.
+
+## How to Use
+
+1. Clone the repository:
    ```bash
-   git clone https://github.com/SafrullahMohomed/NightDrivingAssistance.git
-   cd NightDrivingAssistance
-   ```
-
-2. **Add dependencies**:
-
-   ```bash
-   pip install ultralytics
-   ```
+   git clone https://github.com/AbdulQadir98/Nocturne.git
