@@ -2,8 +2,11 @@ package com.nocturne.nocturne.entity;
 
 import org.springframework.stereotype.Component;
 
+import com.google.cloud.firestore.annotation.DocumentId;
+
 @Component
 public class Location {
+    @DocumentId
     private String id;
     private double latitude;
     private double longitude;
