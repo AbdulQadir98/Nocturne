@@ -1,35 +1,43 @@
 package com.nocturne.nocturne.config;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Configuration;
+import javax.annotation.PostConstruct;
+
+import org.springframework.stereotype.Service;
+import org.springframework.util.ResourceUtils;
+
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 
-@Configuration
+@Service
 public class FirebaseConfig {
 
-    private static final Logger logger = LoggerFactory.getLogger(FirebaseConfig.class);
+    // private static final Logger logger =
+    // LoggerFactory.getLogger(FirebaseConfig.class);
 
-    // @PostConstruct
+    @PostConstruct
     public void configureFirebaseConnection() throws IOException {
 
-        logger.info("Configuring Firebase connection...");
-        // File file = ResourceUtils.getFile("./service_account_pk.json");
-        // FileInputStream serviceAccount = new FileInputStream(file);
-        InputStream serviceAccount = new FileInputStream("classpath:config/service_account_pk.json");
-        GoogleCredentials credentials = GoogleCredentials.fromStream(serviceAccount);
-        FirebaseOptions options = new FirebaseOptions.Builder()
-                .setCredentials(credentials)
-                .build();
+        // logger.info("Configuring Firebase connection...");
+        try {
+            File file = ResourceUtils.getFile("classpath:config/service_account_pk.json");
+            FileInputStream serviceAccount = new FileInputStream(file);
 
-        FirebaseApp.initializeApp(options);
-        logger.info("Firebase connection configured successfully.");
+            // GoogleCredentials credentials = GoogleCredentials.fromStream(serviceAccount);
+            FirebaseOptions options = FirebaseOptions.builder()
+                    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                    .build();
+            FirebaseApp.initializeApp(options);
+            // logger.info("Firebase connection configured successfully.");
+
+        } catch (Exception e) {
+            // e.printStackTrace();
+            System.out.println(e);
+        }
     }
 
 }
