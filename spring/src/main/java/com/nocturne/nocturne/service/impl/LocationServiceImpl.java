@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.google.api.core.ApiFuture;
@@ -24,7 +24,9 @@ import com.google.firebase.cloud.FirestoreClient;
 @Service
 public class LocationServiceImpl implements LocationService {
 
-    // private static final LocationLogger locationLogger = new LocationLogger();
+    // private static final Logger logger =
+    // LoggerFactory.getLogger(LocationServiceImpl.class);
+
     private static final String COLLECTION_NAME = "location";
     private final Firestore db;
 
@@ -37,16 +39,16 @@ public class LocationServiceImpl implements LocationService {
     }
 
     @Override
-    public ResponseEntity<String> saveLocation(Location location) {
+    public void saveLocation(Location location) {
         try {
             DocumentReference docRef = getLocationCollection().document();
+
             location.setId(docRef.getId());
             ApiFuture<WriteResult> apiFuture = docRef.set(location);
             apiFuture.get(); // This will throw an exception if the write fails
-            return new ResponseEntity<>("Location saved successfully", HttpStatus.CREATED);
         } catch (Exception e) {
             // locationLogger.logSevere("Failed to save location: " + e.getMessage());
-            return new ResponseEntity<>("Failed to save location", HttpStatus.BAD_REQUEST);
+            // logger.info("Doing something...");
         }
     }
 

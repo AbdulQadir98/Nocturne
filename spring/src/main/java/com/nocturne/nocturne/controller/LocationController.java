@@ -20,15 +20,20 @@ import com.nocturne.nocturne.service.LocationService;
 public class LocationController {
 
     @Autowired
-    LocationService locationService;
+    private LocationService locationService;
 
-    // public LocationController(LocationService locationService) {
-    // this.locationService = locationService;
-    // }
+    public LocationController(LocationService locationService) {
+        this.locationService = locationService;
+    }
 
     @PostMapping
-    public void saveLocation(@RequestBody Location location) {
-        locationService.saveLocation(location);
+    public ResponseEntity<String> saveLocation(@RequestBody Location location) {
+        try {
+            locationService.saveLocation(location);
+            return new ResponseEntity<>("Location saved successfully", HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Failed to save location. Error: " + e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 
     @GetMapping
@@ -39,10 +44,5 @@ public class LocationController {
         } catch (InterruptedException | ExecutionException e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-    }
-
-    @GetMapping("/hi")
-    public String hello() {
-        return "Greetings from Spring Boot!";
     }
 }
