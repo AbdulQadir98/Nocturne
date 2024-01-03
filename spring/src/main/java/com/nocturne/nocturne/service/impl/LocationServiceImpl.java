@@ -2,14 +2,12 @@ package com.nocturne.nocturne.service.impl;
 
 import com.nocturne.nocturne.model.Location;
 import com.nocturne.nocturne.service.LocationService;
-// import com.nocturne.nocturne.util.LocationLogger;
+import com.nocturne.nocturne.util.LocationLogger;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.google.api.core.ApiFuture;
@@ -24,8 +22,7 @@ import com.google.firebase.cloud.FirestoreClient;
 @Service
 public class LocationServiceImpl implements LocationService {
 
-    // private static final Logger logger =
-    // LoggerFactory.getLogger(LocationServiceImpl.class);
+    private static final LocationLogger locationLogger = new LocationLogger();
 
     private static final String COLLECTION_NAME = "location";
     private final Firestore db;
@@ -46,9 +43,9 @@ public class LocationServiceImpl implements LocationService {
             location.setId(docRef.getId());
             ApiFuture<WriteResult> apiFuture = docRef.set(location);
             apiFuture.get(); // This will throw an exception if the write fails
+            // locationLogger.logInfo("saved location:");
         } catch (Exception e) {
-            // locationLogger.logSevere("Failed to save location: " + e.getMessage());
-            // logger.info("Doing something...");
+            locationLogger.logSevere("Failed to save location: " + e.getMessage());
         }
     }
 
