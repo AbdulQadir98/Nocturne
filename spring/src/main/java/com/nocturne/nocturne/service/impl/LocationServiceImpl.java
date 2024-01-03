@@ -1,6 +1,6 @@
 package com.nocturne.nocturne.service.impl;
 
-import com.nocturne.nocturne.entity.Location;
+import com.nocturne.nocturne.model.Location;
 import com.nocturne.nocturne.service.LocationService;
 // import com.nocturne.nocturne.util.LocationLogger;
 
