@@ -22,6 +22,10 @@ public class LocationController {
     @Autowired
     LocationService locationService;
 
+    // public LocationController(LocationService locationService) {
+    // this.locationService = locationService;
+    // }
+
     @PostMapping
     public void saveLocation(@RequestBody Location location) {
         locationService.saveLocation(location);
@@ -41,22 +45,4 @@ public class LocationController {
     public String hello() {
         return "Greetings from Spring Boot!";
     }
-
-    // private final LocationService locationService;
-
-    // public LocationController(LocationService locationService) {
-    // this.locationService = locationService;
-    // }
-
-    // @PostMapping
-    // @RequestMapping("/")
-    // public void saveLocation(@RequestBody Location location) {
-    // return locationService.saveLocation(location);
-    // }
-
-    // @GetMapping
-    // public Flux<Location> getAllLocations() {
-    // return locationService.getAllLocations();
-    // }
-
 }
