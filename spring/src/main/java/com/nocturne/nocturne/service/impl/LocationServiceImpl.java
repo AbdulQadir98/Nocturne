@@ -39,10 +39,10 @@ public class LocationServiceImpl implements LocationService {
     public void saveLocation(Location location) {
         try {
             DocumentReference docRef = getLocationCollection().document();
-
             location.setId(docRef.getId());
-            ApiFuture<WriteResult> apiFuture = docRef.set(location);
-            apiFuture.get(); // This will throw an exception if the write fails
+            ApiFuture<WriteResult> result = docRef.set(location);
+            result.get(); // This will throw an exception if the write fails
+
             // locationLogger.logInfo("saved location:");
         } catch (Exception e) {
             locationLogger.logSevere("Failed to save location: " + e.getMessage());
@@ -51,8 +51,8 @@ public class LocationServiceImpl implements LocationService {
 
     @Override
     public List<Location> getAllLocations() throws InterruptedException, ExecutionException {
-        ApiFuture<QuerySnapshot> future = getLocationCollection().get();
-        List<QueryDocumentSnapshot> documents = future.get().getDocuments();
+        ApiFuture<QuerySnapshot> query = getLocationCollection().get();
+        List<QueryDocumentSnapshot> documents = query.get().getDocuments();
 
         List<Location> locations = new ArrayList<>();
         for (QueryDocumentSnapshot document : documents) {
