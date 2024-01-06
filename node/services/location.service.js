@@ -1,4 +1,4 @@
-const locationServiceImplementation = require('./interfaces/location.service.impl');
+const locationServiceImplementation = require('./impl/location.service.impl');
 
 const locationService = {
   getAllLocations: async () => {
