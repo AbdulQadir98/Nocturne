@@ -1,9 +1,12 @@
-class location {
-    constructor(lat, lng) {
-      this.lat = lat;
-      this.lng = lng;
-    }
+class Location {
+  constructor({ geohash, latitude, longitude }) {
+    this.geohash = geohash;
+    this.latitude = latitude;
+    this.longitude = longitude;
   }
-  
-module.exports = location;
+
+}
+
+module.exports = Location;
+
   

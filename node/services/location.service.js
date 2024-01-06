@@ -1,24 +1,17 @@
-const locatioinServiceInterface = require('./interfaces/location.service.impl');
-const Location = require('../models/location.model');
+const locationServiceImplementation = require('./interfaces/location.service.impl');
 
-class UserService extends UserServiceInterface {
-  async getUserById(userId) {
-    try {
-      const user = await UserModel.findById(userId);
-      return user;
-    } catch (error) {
-      throw new Error(`Error getting user by ID: ${error.message}`);
-    }
-  }
+const locationService = {
+  getAllLocations: async () => {
+    return locationServiceImplementation.getAllLocations();
+  },
 
-  async createUser(user) {
-    try {
-      const newUser = await UserModel.create(user);
-      return newUser;
-    } catch (error) {
-      throw new Error(`Error creating user: ${error.message}`);
-    }
-  }
-}
+  addLocation: async (lat, lng) => {
+    return locationServiceImplementation.addLocation(lat, lng);
+  },
 
-module.exports = new UserService();
+  getNearbyLocations: async (lat, lng, radius) => {
+    return locationServiceImplementation.getNearbyLocations(lat, lng, radius);
+  },
+};
+
+module.exports = locationService;
