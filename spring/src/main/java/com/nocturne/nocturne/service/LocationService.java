@@ -1,23 +1,12 @@
 package com.nocturne.nocturne.service;
 
-import org.springframework.stereotype.Service;
+import com.nocturne.nocturne.model.Location;
 
-import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.WriteResult;
-import com.google.firebase.cloud.FirestoreClient;
-import com.nocturne.nocturne.entity.Location;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
-@Service
-public class LocationService {
+public interface LocationService {
+    void saveLocation(Location location);
 
-    public void saveLocation(Location location) {
-        Firestore db = FirestoreClient.getFirestore();
-
-        DocumentReference docRef = db.collection("location").document();
-
-        location.setId(docRef.getId());
-        ApiFuture<WriteResult> apiFuture = docRef.set(location);
-    }
+    List<Location> getAllLocations() throws InterruptedException, ExecutionException;
 }
