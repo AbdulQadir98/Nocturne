@@ -214,3 +214,22 @@ springboot/src/main/resources/application.yml
 
 node/config/service-account.json
 # End of https://www.gitignore.io/api/git,java,node,maven,intellij
+
+# for android application
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+/app/
+
