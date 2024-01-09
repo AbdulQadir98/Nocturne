@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_detection">
+
+    <fragment
+        android:id="@+id/nav_detection"
+        android:name="com.fourthyear.nocturneapp.ui.detection.DetectionFragment"
+        android:label="@string/menu_detection"
+        tools:layout="@layout/fragment_detection" />
+
+    <fragment
+        android:id="@+id/nav_anomalies"
+        android:name="com.fourthyear.nocturneapp.ui.anomalies.AnomaliesFragment"
+        android:label="@string/menu_anomalies"
+        tools:layout="@layout/fragment_anomalies" />
+
+    <fragment
+        android:id="@+id/nav_group"
+        android:name="com.fourthyear.nocturneapp.ui.group.GroupFragment"
+        android:label="@string/menu_group"
+        tools:layout="@layout/fragment_group" />
+</navigation>
