@@ -22,9 +22,9 @@ This system predicts pedestrians, cyclists, and potholes in the Sri Lankan conte
 
 - **Data Preprocessing and Model Training:** Python, YOLOv8 Ultralytics python library.
   
-- **Frontend Development:** React.
+- **Application Development:** Android.
 
-- **Backend Implementation:** Spring Boot.
+- **Backend Implementation:** Spring Boot, and Firebase.
 
 ## How to Use
 
